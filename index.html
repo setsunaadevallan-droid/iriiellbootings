@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iriiel Boosting | Premium Game Joki Service</title>
+  <style>
+    :root {
+      --bg: #070812;
+      --bg-soft: #0d1022;
+      --card: rgba(255, 255, 255, 0.075);
+      --card-border: rgba(255, 255, 255, 0.13);
+      --gold: #f5c76b;
+      --gold-soft: #ffe4a3;
+      --purple: #9b7cff;
+      --pink: #ff7ac8;
+      --text: #f8fafc;
+      --muted: #a8b0c7;
+      --shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(155, 124, 255, 0.22), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(255, 122, 200, 0.16), transparent 30%),
+        radial-gradient(circle at 50% 85%, rgba(245, 199, 107, 0.12), transparent 32%),
+        var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 80%);
+      z-index: -1;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 8, 18, 0.78);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 800;
+      letter-spacing: 0.4px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--gold), var(--purple));
+      color: #070812;
+      box-shadow: 0 10px 35px rgba(245, 199, 107, 0.25);
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-soft);
+    }
+
+    .nav-cta, .btn-primary, .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .nav-cta {
+      padding: 11px 18px;
+      color: #080914;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      box-shadow: 0 10px 30px rgba(245, 199, 107, 0.22);
+    }
+
+    .hero {
+      position: relative;
+      padding: 92px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(245, 199, 107, 0.35);
+      background: rgba(245, 199, 107, 0.08);
+      color: var(--gold-soft);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 0.96;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--gold-soft), var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .btn-primary {
+      padding: 15px 24px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      color: #070812;
+      box-shadow: 0 16px 42px rgba(245, 199, 107, 0.28);
+    }
+
+    .btn-primary:hover, .nav-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 52px rgba(245, 199, 107, 0.36);
+    }
+
+    .btn-secondary {
+      padding: 15px 24px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      border-color: rgba(245, 199, 107, 0.45);
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .trust-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: #dce3f7;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 13px;
+    }
+
+    .showcase {
+      position: relative;
+      min-height: 560px;
+    }
+
+    .orb {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      filter: blur(4px);
+      opacity: 0.9;
+    }
+
+    .orb.one {
+      right: 20px;
+      top: 0;
+      background: radial-gradient(circle, rgba(155,124,255,0.9), transparent 68%);
+    }
+
+    .orb.two {
+      left: 20px;
+      bottom: 20px;
+      background: radial-gradient(circle, rgba(245,199,107,0.55), transparent 70%);
+    }
+
+    .premium-card {
+      position: relative;
+      margin-left: auto;
+      width: min(440px, 100%);
+      padding: 26px;
+      border-radius: 34px;
+      border: 1px solid var(--card-border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.055));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      overflow: hidden;
+    }
+
+    .premium-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(135deg, rgba(245,199,107,0.35), transparent, rgba(155,124,255,0.35));
+      opacity: 0.55;
+      z-index: -1;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .status {
+      color: #071012;
+      background: #8ff5c4;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .rank-panel {
+      padding: 28px;
+      border-radius: 26px;
+      background: rgba(7, 8, 18, 0.62);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .rank-panel h3 {
+      color: var(--gold-soft);
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .rank-panel p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .progress {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .progress span {
+      display: block;
+      width: 78%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--purple), var(--pink));
+      border-radius: inherit;
+    }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .mini-stat {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .mini-stat strong {
+      display: block;
+      color: var(--gold-soft);
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .mini-stat span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .filter-btn {
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.07);
+      color: var(--muted);
+      padding: 10px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      color: #070812;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      border-color: transparent;
+      box-shadow: 0 12px 32px rgba(245,199,107,0.22);
+    }
+
+    .game-link.hide {
+      display: none;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .game-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .game-card {
+      position: relative;
+      padding: 24px;
+      min-height: 170px;
+      border-radius: 26px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+
+    .game-card::after {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      right: -45px;
+      bottom: -45px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,199,107,0.35), transparent 65%);
+    }
+
+    .game-link {
+      cursor: pointer;
+    }
+
+    .game-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(245, 199, 107, 0.42);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .game-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      margin-bottom: 18px;
+      color: #070812;
+      background: linear-gradient(135deg, var(--gold), var(--purple));
+      font-weight: 900;
+    }
+
+    .game-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .game-card h3 {
+      font-size: 18px;
+      margin-bottom: 9px;
+    }
+
+    .game-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .pricelist-showcase {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 28px;
+      align-items: center;
+      padding: 28px;
+      border-radius: 36px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.045));
+      border: 1px solid rgba(245,199,107,0.24);
+      box-shadow: var(--shadow);
+    }
+
+    .pricelist-info h3 {
+      font-size: clamp(28px, 4vw, 46px);
+      color: var(--gold-soft);
+      margin-bottom: 14px;
+    }
+
+    .pricelist-info p {
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 22px;
+    }
+
+    .pricelist-image-wrap {
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(7, 8, 18, 0.7);
+    }
+
+    .pricelist-image-wrap img {
+      width: 100%;
+      display: block;
+    }
+
+    .service-card, .pricing-card, .step-card {
+      padding: 28px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.045));
+      border: 1px solid var(--card-border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+    }
+
+    .service-card h3, .pricing-card h3, .step-card h3 {
+      color: var(--gold-soft);
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .service-card p, .step-card p {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .pricing-wrap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .pricing-card.featured {
+      border-color: rgba(245,199,107,0.48);
+      transform: translateY(-10px);
+      background: linear-gradient(180deg, rgba(245,199,107,0.14), rgba(255,255,255,0.06));
+    }
+
+    .price {
+      margin: 18px 0 20px;
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .price small {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-bottom: 24px;
+      color: #d8def2;
+    }
+
+    .pricing-card li::before {
+      content: "✦";
+      color: var(--gold);
+      margin-right: 10px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      color: #070812;
+      background: var(--gold);
+      font-weight: 900;
+    }
+
+    .cta-box {
+      text-align: center;
+      padding: 54px 28px;
+      border-radius: 38px;
+      background:
+        linear-gradient(135deg, rgba(245,199,107,0.16), rgba(155,124,255,0.15)),
+        rgba(255,255,255,0.055);
+      border: 1px solid rgba(245,199,107,0.25);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      margin-bottom: 14px;
+    }
+
+    .cta-box p {
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto 28px;
+      line-height: 1.75;
+    }
+
+    .order-form {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px;
+      border-radius: 34px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.045));
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .form-group {
+      display: grid;
+      gap: 8px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      color: var(--gold-soft);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 15px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.14);
+      outline: none;
+      background: rgba(7, 8, 18, 0.68);
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-note {
+      margin: 18px 0 22px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      padding: 16px 24px;
+      border-radius: 999px;
+      color: #070812;
+      font-size: 16px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      box-shadow: 0 16px 42px rgba(245, 199, 107, 0.28);
+      transition: 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 52px rgba(245, 199, 107, 0.36);
+    }
+
+    .image-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(14px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .image-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      position: relative;
+      width: min(1100px, 96vw);
+      max-height: 90vh;
+      transform: scale(0.88) translateY(28px);
+      opacity: 0;
+      transition: 0.38s ease;
+    }
+
+    .image-modal.active .modal-content {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    .modal-content img {
+      width: 100%;
+      max-height: 86vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow: 0 30px 100px rgba(0,0,0,0.6);
+      background: rgba(7, 8, 18, 0.9);
+      cursor: grab;
+      user-select: none;
+      transition: transform 0.18s ease;
+      transform-origin: center center;
+    }
+
+    .modal-content img.dragging {
+      cursor: grabbing;
+      transition: none;
+    }
+
+    .zoom-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .zoom-controls button {
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.09);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 900;
+      transition: 0.25s ease;
+    }
+
+    .zoom-controls button:hover {
+      color: #070812;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      color: #070812;
+      font-size: 24px;
+      font-weight: 900;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.35);
+    }
+
+    .modal-title {
+      margin-bottom: 12px;
+      color: var(--gold-soft);
+      font-size: 20px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .floating-contact {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    .floating-contact a {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 22px;
+      color: #070812;
+      font-weight: bold;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      transition: 0.3s ease;
+    }
+
+    .floating-contact a:hover {
+      transform: scale(1.15);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    }
+
+    footer {
+      padding: 34px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .services-grid, .pricing-wrap, .pricelist-showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase {
+        min-height: auto;
+      }
+
+      .premium-card {
+        margin: 0 auto;
+      }
+
+      .games-grid, .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pricing-card.featured {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(100% - 28px, 1160px);
+      }
+
+      .nav-inner {
+        height: auto;
+        padding: 16px 0;
+        gap: 14px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        gap: 18px;
+        padding-bottom: 6px;
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
+
+      .games-grid, .steps, .mini-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions a {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="brand">
+        <span class="brand-mark">IB</span>
+        <span>Iriiel Boosting</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#games">Game</a>
+        <a href="#services">Layanan</a>
+        <a href="#pricing">Paket</a>
+        <a href="#order">Order</a>
+        <a class="nav-cta" href="https://wa.me/6281229512716" target="_blank">Chat Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">✦ Premium Game Boosting Service</div>
+          <h1>Naik progress game dengan layanan <span>elegan, aman, dan rapi.</span></h1>
+          <p>
+            Iriiel Boosting hadir untuk membantu kebutuhan joki game kamu, mulai dari farming, daily, exploration,
+            build character, event, hingga progress account dengan sistem order yang jelas dan profesional.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#form-order" class="btn-primary">Order via WhatsApp</a>
+            <a href="#games" class="btn-secondary">Lihat Game Support</a>
+          </div>
+
+          <div class="trust-row">
+            <div class="trust-pill">Aman & Privasi Terjaga</div>
+            <div class="trust-pill">Update Progress Berkala</div>
+            <div class="trust-pill">Admin Fast Response</div>
+          </div>
+        </div>
+
+        <div class="showcase">
+          <div class="orb one"></div>
+          <div class="orb two"></div>
+          <div class="premium-card">
+            <div class="card-top">
+              <strong>Iriiel Dashboard</strong>
+              <span class="status">OPEN ORDER</span>
+            </div>
+
+            <div class="rank-panel">
+              <h3>Premium Boost</h3>
+              <p>Progress order kamu akan dikerjakan secara detail, rapi, dan sesuai request yang sudah disepakati.</p>
+              <div class="progress"><span></span></div>
+
+              <div class="mini-stats">
+                <div class="mini-stat">
+                  <strong>24/7</strong>
+                  <span>Order masuk</span>
+                </div>
+                <div class="mini-stat">
+                  <strong>8+</strong>
+                  <span>Game support</span>
+                </div>
+                <div class="mini-stat">
+                  <strong>100%</strong>
+                  <span>Privasi akun</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="games">
+      <div class="container">
+        <div class="section-head">
+          <h2>Game yang Tersedia</h2>
+          <p>Pilih game favorit kamu, lalu konsultasikan kebutuhan boosting atau farming dengan admin Iriiel Boosting.</p>
+        </div>
+
+        <div class="filter-tabs">
+          <button class="filter-btn active" onclick="filterGames('all', this)">Semua</button>
+          <button class="filter-btn" onclick="filterGames('hoyoverse', this)">HoYoverse</button>
+          <button class="filter-btn" onclick="filterGames('openworld', this)">Open World</button>
+          <button class="filter-btn" onclick="filterGames('anime-rpg', this)">Anime RPG</button>
+          <button class="filter-btn" onclick="filterGames('coming-soon', this)">Coming Soon</button>
+        </div>
+
+        <div class="games-grid">
+          <a href="#hsr-pricelist" class="game-link" data-category="hoyoverse anime-rpg" onclick="openPricelist(event, 'hsr.jpg', 'Pricelist Honkai: Star Rail')">
+            <div class="game-card">
+              <div class="game-icon">HSR</div>
+              <h3>Honkai: Star Rail</h3>
+              <p>Klik untuk melihat pricelist Honkai: Star Rail dan detail layanan yang tersedia.</p>
+            </div>
+          </a>
+          <a href="#genshin-pricelist" class="game-link" data-category="hoyoverse openworld anime-rpg" onclick="openPricelist(event, 'gi.jpg', 'Pricelist Genshin Impact')">
+            <div class="game-card">
+              <div class="game-icon">GI</div>
+              <h3>Genshin Impact</h3>
+              <p>Klik untuk melihat pricelist Genshin Impact dan detail layanan yang tersedia.</p>
+            </div>
+          </a>
+          <a href="#ww-pricelist" class="game-link" data-category="openworld anime-rpg" onclick="openPricelist(event, 'ww.jpg', 'Pricelist Wuthering Waves')">
+            <div class="game-card">
+              <div class="game-icon">WW</div>
+              <h3>Wuthering Waves</h3>
+              <p>Klik untuk melihat pricelist Wuthering Waves dan detail layanan yang tersedia.</p>
+            </div>
+          </a>
+          <a href="#zzz-pricelist" class="game-link" data-category="hoyoverse anime-rpg" onclick="openPricelist(event, 'zzz.jpg', 'Pricelist Zenless Zone Zero')">
+            <div class="game-card">
+              <div class="game-icon">ZZZ</div>
+              <h3>Zenless Zone Zero</h3>
+              <p>Klik untuk melihat pricelist Zenless Zone Zero dan detail layanan yang tersedia.</p>
+            </div>
+          </a>
+          <a href="#star-savior-pricelist" class="game-link" data-category="anime-rpg coming-soon" onclick="openPricelist(event, 'starsavior.jpg', 'Pricelist Star Savior')">
+            <div class="game-card">
+              <div class="game-icon">SS</div>
+              <h3>Star Savior</h3>
+              <p>Klik untuk melihat pricelist Star Savior dan detail layanan yang tersedia.</p>
+            </div>
+          </a>
+          <a href="#arknight-endfield-pricelist" class="game-link" data-category="openworld anime-rpg coming-soon" onclick="openPricelist(event, 'ae.jpg', 'Pricelist Arknight: Endfield')">
+            <div class="game-card">
+              <div class="game-icon">AE</div>
+              <h3>Arknight: Endfield</h3>
+              <p>Klik untuk melihat pricelist Arknight: Endfield dan detail layanan yang tersedia.</p>
+            </div>
+          </a>
+          <a href="#stella-sora-pricelist" class="game-link" data-category="anime-rpg coming-soon" onclick="openPricelist(event, 'sts.jpg', 'Pricelist Stella Sora')">
+            <div class="game-card">
+              <div class="game-icon">SO</div>
+              <h3>Stella Sora</h3>
+              <p>Klik untuk melihat pricelist Stella Sora dan detail layanan yang tersedia.</p>
+            </div>
+          </a>
+          <a href="#nte-pricelist" class="game-link" data-category="openworld anime-rpg coming-soon" onclick="openPricelist(event, 'nte.png', 'Pricelist Neverness to Everness')">
+            <div class="game-card">
+              <div class="game-icon">NTE</div>
+              <h3>Neverness to Everness</h3>
+              <p>Klik untuk melihat pricelist Neverness to Everness dan detail layanan yang tersedia.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="nte-pricelist">
+      <div class="container">
+        <div class="section-head">
+          <h2>Pricelist Neverness to Everness</h2>
+          <p>Halaman khusus Neverness to Everness. Klik kartu NTE untuk membuka popup pricelist.</p>
+        </div>
+
+        <div class="pricelist-showcase">
+          <div class="pricelist-info">
+            <div class="eyebrow">✦ Neverness to Everness Service</div>
+            <h3>Neverness to Everness Boosting</h3>
+            <p>
+              Berikut pricelist khusus untuk layanan Neverness to Everness dari Iriiel Boosting.
+            </p>
+            <a href="#form-order" class="btn-primary">Order NTE</a>
+          </div>
+
+          <div class="pricelist-image-wrap">
+            <img src="nte.png" alt="Pricelist Neverness to Everness Iriiel Boosting">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stella-sora-pricelist">
+      <div class="container">
+        <div class="section-head">
+          <h2>Pricelist Stella Sora</h2>
+          <p>Halaman khusus Stella Sora. Klik kartu Stella Sora di daftar game untuk langsung membuka popup pricelist.</p>
+        </div>
+
+        <div class="pricelist-showcase">
+          <div class="pricelist-info">
+            <div class="eyebrow">✦ Stella Sora Service</div>
+            <h3>Stella Sora Boosting</h3>
+            <p>
+              Berikut pricelist khusus untuk layanan Stella Sora dari Iriiel Boosting. Untuk order, isi form otomatis
+              di bawah atau langsung konsultasi ke WhatsApp admin.
+            </p>
+            <a href="#form-order" class="btn-primary">Order Stella Sora</a>
+          </div>
+
+          <div class="pricelist-image-wrap">
+            <img src="sts.jpg" alt="Pricelist Stella Sora Iriiel Boosting">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="zzz-pricelist">
+      <div class="container">
+        <div class="section-head">
+          <h2>Pricelist Zenless Zone Zero</h2>
+          <p>Halaman khusus Zenless Zone Zero. Klik kartu ZZZ di daftar game untuk langsung menuju bagian ini.</p>
+        </div>
+
+        <div class="pricelist-showcase">
+          <div class="pricelist-info">
+            <div class="eyebrow">✦ Zenless Zone Zero Service</div>
+            <h3>Zenless Zone Zero Boosting</h3>
+            <p>
+              Berikut pricelist khusus untuk layanan Zenless Zone Zero dari Iriiel Boosting. Untuk order, isi form otomatis
+              di bawah atau langsung konsultasi ke WhatsApp admin.
+            </p>
+            <a href="#form-order" class="btn-primary">Order ZZZ</a>
+          </div>
+
+          <div class="pricelist-image-wrap">
+            <img src="zzz.jpg" alt="Pricelist Zenless Zone Zero Iriiel Boosting">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ww-pricelist">
+      <div class="container">
+        <div class="section-head">
+          <h2>Pricelist Wuthering Waves</h2>
+          <p>Halaman khusus Wuthering Waves. Klik kartu Wuthering Waves di daftar game untuk langsung menuju bagian ini.</p>
+        </div>
+
+        <div class="pricelist-showcase">
+          <div class="pricelist-info">
+            <div class="eyebrow">✦ Wuthering Waves Service</div>
+            <h3>Wuthering Waves Boosting</h3>
+            <p>
+              Berikut pricelist khusus untuk layanan Wuthering Waves dari Iriiel Boosting. Untuk order, isi form otomatis
+              di bawah atau langsung konsultasi ke WhatsApp admin.
+            </p>
+            <a href="#form-order" class="btn-primary">Order Wuthering Waves</a>
+          </div>
+
+          <div class="pricelist-image-wrap">
+            <img src="ww.jpg" alt="Pricelist Wuthering Waves Iriiel Boosting">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="genshin-pricelist">
+      <div class="container">
+        <div class="section-head">
+          <h2>Pricelist Genshin Impact</h2>
+          <p>Halaman khusus Genshin Impact. Klik kartu Genshin Impact di daftar game untuk langsung menuju bagian ini.</p>
+        </div>
+
+        <div class="pricelist-showcase">
+          <div class="pricelist-info">
+            <div class="eyebrow">✦ Genshin Impact Service</div>
+            <h3>Genshin Impact Boosting</h3>
+            <p>
+              Berikut pricelist khusus untuk layanan Genshin Impact dari Iriiel Boosting. Untuk order, isi form otomatis
+              di bawah atau langsung konsultasi ke WhatsApp admin.
+            </p>
+            <a href="#form-order" class="btn-primary">Order Genshin Impact</a>
+          </div>
+
+          <div class="pricelist-image-wrap">
+            <img src="gi.jpg" alt="Pricelist Genshin Impact Iriiel Boosting">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="hsr-pricelist">
+      <div class="container">
+        <div class="section-head">
+          <h2>Pricelist Honkai: Star Rail</h2>
+          <p>Halaman khusus Honkai: Star Rail. Klik kartu HSR di daftar game untuk langsung menuju bagian ini.</p>
+        </div>
+
+        <div class="pricelist-showcase">
+          <div class="pricelist-info">
+            <div class="eyebrow">✦ Honkai: Star Rail Service</div>
+            <h3>Honkai Star Rail Boosting</h3>
+            <p>
+              Berikut pricelist khusus untuk layanan Honkai: Star Rail dari Iriiel Boosting. Untuk order, isi form otomatis
+              di bawah atau langsung konsultasi ke WhatsApp admin.
+            </p>
+            <a href="#form-order" class="btn-primary">Order HSR</a>
+          </div>
+
+          <div class="pricelist-image-wrap">
+            <img src="hsr.jpg" alt="Pricelist Honkai Star Rail Iriiel Boosting">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="star-savior-pricelist">
+      <div class="container">
+        <div class="section-head">
+          <h2>Pricelist Star Savior</h2>
+          <p>Halaman khusus Star Savior. Klik kartu Star Savior di daftar game untuk langsung menuju bagian ini.</p>
+        </div>
+
+        <div class="pricelist-showcase">
+          <div class="pricelist-info">
+            <div class="eyebrow">✦ Star Savior Service</div>
+            <h3>Star Savior Boosting</h3>
+            <p>
+              Berikut pricelist khusus untuk layanan Star Savior dari Iriiel Boosting. Untuk order, isi form otomatis
+              di bawah atau langsung konsultasi ke WhatsApp admin.
+            </p>
+            <a href="#form-order" class="btn-primary">Order Star Savior</a>
+          </div>
+
+          <div class="pricelist-image-wrap">
+            <img src="starsavior.jpg" alt="Pricelist Star Savior Iriiel Boosting">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="arknight-endfield-pricelist">
+      <div class="container">
+        <div class="section-head">
+          <h2>Pricelist Arknight: Endfield</h2>
+          <p>Halaman khusus Arknight: Endfield. Klik kartu Arknight: Endfield di daftar game untuk langsung menuju bagian ini.</p>
+        </div>
+
+        <div class="pricelist-showcase">
+          <div class="pricelist-info">
+            <div class="eyebrow">✦ Arknight: Endfield Service</div>
+            <h3>Arknight: Endfield Boosting</h3>
+            <p>
+              Berikut pricelist khusus untuk layanan Arknight: Endfield dari Iriiel Boosting. Untuk order, isi form otomatis
+              di bawah atau langsung konsultasi ke WhatsApp admin.
+            </p>
+            <a href="#form-order" class="btn-primary">Order Arknight: Endfield</a>
+          </div>
+
+          <div class="pricelist-image-wrap">
+            <img src="ae.jpg" alt="Pricelist Arknight Endfield Iriiel Boosting">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Layanan Iriiel Boosting</h2>
+          <p>Didesain untuk pelanggan yang ingin progres cepat tanpa tampilan website yang terlalu ramai.</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Daily & Weekly</h3>
+            <p>Pengerjaan rutinitas harian dan mingguan agar resource akun tetap maksimal.</p>
+          </div>
+          <div class="service-card">
+            <h3>Farming Material</h3>
+            <p>Farming item, relic, echo, artifact, resource upgrade, dan material character sesuai target.</p>
+          </div>
+          <div class="service-card">
+            <h3>Quest & Exploration</h3>
+            <p>Bantu selesaikan quest, map exploration, event story, dan misi yang memakan waktu.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <h2>Paket Layanan</h2>
+          <p>Harga bisa disesuaikan dengan game, tingkat kesulitan, deadline, dan detail request.</p>
+        </div>
+
+        <div class="pricing-wrap">
+          <div class="pricing-card">
+            <h3>Basic</h3>
+            <div class="price">Mulai 15K <small>/ request</small></div>
+            <ul>
+              <li>Daily sederhana</li>
+              <li>Farming ringan</li>
+              <li>Estimasi fleksibel</li>
+            </ul>
+            <a href="https://wa.me/6281229512716" target="_blank" class="btn-secondary">Pilih Paket</a>
+          </div>
+
+          <div class="pricing-card featured">
+            <h3>Premium</h3>
+            <div class="price">Mulai 50K <small>/ order</small></div>
+            <ul>
+              <li>Quest dan event</li>
+              <li>Farming intensif</li>
+              <li>Update progress berkala</li>
+            </ul>
+            <a href="https://wa.me/6281229512716" target="_blank" class="btn-primary">Paling Direkomendasikan</a>
+          </div>
+
+          <div class="pricing-card">
+            <h3>Custom</h3>
+            <div class="price">By Request <small>/ konsultasi</small></div>
+            <ul>
+              <li>Target khusus</li>
+              <li>Deadline tertentu</li>
+              <li>Multi-game order</li>
+            </ul>
+            <a href="https://wa.me/6281229512716" target="_blank" class="btn-secondary">Konsultasi Dulu</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="order">
+      <div class="container">
+        <div class="section-head">
+          <h2>Cara Order</h2>
+          <p>Alur dibuat simpel supaya pelanggan cepat paham sebelum chat admin.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Pilih Game</h3>
+            <p>Tentukan game dan jenis layanan yang kamu butuhkan.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Kirim Detail</h3>
+            <p>Berikan target, deadline, kondisi akun, dan request khusus.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Deal Harga</h3>
+            <p>Admin akan menghitung harga sesuai tingkat kesulitan.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Proses</h3>
+            <p>Order dikerjakan dan progress akan diinformasikan secara berkala.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="form-order">
+      <div class="container">
+        <div class="section-head">
+          <h2>Form Order Otomatis</h2>
+          <p>Isi detail order di bawah ini, lalu klik tombol kirim untuk membuka WhatsApp admin dengan pesan otomatis.</p>
+        </div>
+
+        <form class="order-form" onsubmit="sendOrderToWhatsApp(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="game">Game</label>
+              <select id="game" required>
+                <option value="">Pilih game</option>
+                <option>Honkai: Star Rail</option>
+                <option>Genshin Impact</option>
+                <option>Wuthering Waves</option>
+                <option>Zenless Zone Zero</option>
+                <option>Star Savior</option>
+                <option>Arknights: Endfield</option>
+                <option>Stella Sora</option>
+                <option>Neverness to Everness</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="login">Login</label>
+              <input type="text" id="login" placeholder="Contoh: Hoyoverse / Google / Facebook" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email / Username</label>
+              <input type="text" id="email" placeholder="Isi email atau username akun" required>
+            </div>
+
+            <div class="form-group">
+              <label for="server">Server</label>
+              <input type="text" id="server" placeholder="Contoh: Asia / SEA / America" required>
+            </div>
+
+            <div class="form-group full">
+              <label for="order">Detail Order</label>
+              <textarea id="order" placeholder="Contoh: Daily 7 hari, farming material, exploration 100%, event, quest, dll." required></textarea>
+            </div>
+          </div>
+
+          <p class="form-note">
+            Catatan keamanan: password tidak dikirim lewat form website. Untuk detail login sensitif, konfirmasi langsung dengan admin di chat WhatsApp setelah order masuk.
+          </p>
+
+          <button type="submit" class="submit-btn">Kirim Order ke WhatsApp</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-box">
+          <h2>Ready boost your account?</h2>
+          <p>
+            Chat admin Iriiel Boosting sekarang untuk konsultasi game, estimasi harga,
+            dan jadwal pengerjaan. Ganti nomor WhatsApp di kode sebelum website dipublish.
+          </p>
+          <a href="#form-order" class="btn-primary">Chat WhatsApp Sekarang</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Iriiel Boosting. Premium Game Joki Service.</p>
+
+      <div style="margin-top:20px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <a href="https://wa.me/6281229512716" target="_blank" class="btn-primary">WhatsApp</a>
+        <a href="https://www.facebook.com/share/1CS8Ei81mZ/" target="_blank" class="btn-secondary">Facebook</a>
+        <a href="https://discord.gg/ck4WXP8qE" target="_blank" class="btn-secondary">Discord Server</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-contact">
+    <a href="https://wa.me/6281229512716" target="_blank" title="WhatsApp">WA</a>
+    <a href="https://www.facebook.com/share/1CS8Ei81mZ/" target="_blank" title="Facebook">FB</a>
+    <a href="https://discord.gg/ck4WXP8qE" target="_blank" title="Discord">DC</a>
+  </div>
+
+  <div class="image-modal" id="pricelistModal" onclick="closePricelist(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closePricelist(event)" aria-label="Tutup popup">×</button>
+      <div class="modal-title" id="modalTitle">Pricelist</div>
+      <img id="modalImage" src="" alt="Pricelist Iriiel Boosting" draggable="false">
+      <div class="zoom-controls">
+        <button onclick="zoomImage(0.2)">Zoom +</button>
+        <button onclick="zoomImage(-0.2)">Zoom -</button>
+        <button onclick="resetZoom()">Reset</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    let zoomLevel = 1;
+    let dragX = 0;
+    let dragY = 0;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+
+    function applyImageTransform() {
+      const img = document.getElementById('modalImage');
+      img.style.transform = `translate(${dragX}px, ${dragY}px) scale(${zoomLevel})`;
+    }
+
+    function zoomImage(amount) {
+      zoomLevel = Math.min(3, Math.max(1, zoomLevel + amount));
+      if (zoomLevel === 1) {
+        dragX = 0;
+        dragY = 0;
+      }
+      applyImageTransform();
+    }
+
+    function resetZoom() {
+      zoomLevel = 1;
+      dragX = 0;
+      dragY = 0;
+      applyImageTransform();
+    }
+
+    function filterGames(category, button) {
+      const cards = document.querySelectorAll('.game-link');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      cards.forEach(card => {
+        const categories = card.dataset.category || '';
+        if (category === 'all' || categories.includes(category)) {
+          card.classList.remove('hide');
+        } else {
+          card.classList.add('hide');
+        }
+      });
+    }
+
+    function openPricelist(event, imageSrc, title) {
+      event.preventDefault();
+
+      const modal = document.getElementById('pricelistModal');
+      const modalImage = document.getElementById('modalImage');
+      const modalTitle = document.getElementById('modalTitle');
+
+      resetZoom();
+      modalImage.src = imageSrc;
+      modalImage.alt = title;
+      modalTitle.textContent = title;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePricelist(event) {
+      if (event.target.id === 'pricelistModal' || event.target.classList.contains('modal-close')) {
+        const modal = document.getElementById('pricelistModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        document.getElementById('pricelistModal').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const img = document.getElementById('modalImage');
+
+      img.addEventListener('wheel', function(event) {
+        event.preventDefault();
+        zoomImage(event.deltaY < 0 ? 0.15 : -0.15);
+      });
+
+      img.addEventListener('mousedown', function(event) {
+        if (zoomLevel <= 1) return;
+        isDragging = true;
+        img.classList.add('dragging');
+        startX = event.clientX - dragX;
+        startY = event.clientY - dragY;
+      });
+
+      window.addEventListener('mousemove', function(event) {
+        if (!isDragging) return;
+        dragX = event.clientX - startX;
+        dragY = event.clientY - startY;
+        applyImageTransform();
+      });
+
+      window.addEventListener('mouseup', function() {
+        isDragging = false;
+        img.classList.remove('dragging');
+      });
+
+      img.addEventListener('touchstart', function(event) {
+        if (zoomLevel <= 1) return;
+        isDragging = true;
+        const touch = event.touches[0];
+        startX = touch.clientX - dragX;
+        startY = touch.clientY - dragY;
+      }, { passive: true });
+
+      img.addEventListener('touchmove', function(event) {
+        if (!isDragging) return;
+        const touch = event.touches[0];
+        dragX = touch.clientX - startX;
+        dragY = touch.clientY - startY;
+        applyImageTransform();
+      }, { passive: true });
+
+      img.addEventListener('touchend', function() {
+        isDragging = false;
+      });
+    });
+
+    function sendOrderToWhatsApp(event) {
+      event.preventDefault();
+
+      const game = document.getElementById('game').value;
+      const login = document.getElementById('login').value;
+      const email = document.getElementById('email').value;
+      const server = document.getElementById('server').value;
+      const order = document.getElementById('order').value;
+
+      const message = `Halo Admin Iriiel Boosting, saya mau order joki game.%0A%0A` +
+        `Game: ${encodeURIComponent(game)}%0A` +
+        `Login: ${encodeURIComponent(login)}%0A` +
+        `Email/Username: ${encodeURIComponent(email)}%0A` +
+        `Server: ${encodeURIComponent(server)}%0A` +
+        `Order: ${encodeURIComponent(order)}%0A%0A` +
+        `Mohon info harga dan estimasi pengerjaannya ya.`;
+
+      window.open(`https://wa.me/6281229512716?text=${message}`, '_blank');
+    }
+  </script>
+</body>
+</html>
