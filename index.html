@@ -883,6 +883,80 @@
       .hero-actions a {
         width: 100%;
       }
+
+      .team-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.team-title {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.team-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.team-card {
+  width: 200px;
+  padding: 22px;
+  border-radius: 24px;
+  text-decoration: none;
+  color: var(--text);
+  background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, rgba(245,199,107,0.4), transparent, rgba(155,124,255,0.4));
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.team-card:hover::before {
+  opacity: 1;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(245,199,107,0.4);
+}
+
+.team-avatar {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 18px;
+  color: #070812;
+  background: linear-gradient(135deg, var(--gold), var(--purple));
+  box-shadow: 0 10px 30px rgba(245,199,107,0.3);
+}
+
+.team-card h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.team-card span {
+  font-size: 13px;
+  color: var(--muted);
+}
     }
   </style>
 </head>
@@ -1449,6 +1523,26 @@
       </div>
     </section>
   </main>
+
+  <div class="team-section">
+  <p class="team-title">My Partnership</p>
+
+  <div class="team-grid">
+    
+    <a href="https://www.facebook.com/share/1akrfoMP56/" target="_blank" class="team-card">
+      <div class="team-avatar">KA</div>
+      <h3>Kakamond alice</h3>
+      <span>Spesialis HSR</span>
+    </a>
+
+    <a href="https://www.facebook.com/share/1C1XrmmqCQ/" target="_blank" class="team-card">
+      <div class="team-avatar">AL</div>
+      <h3>Alez Leosi</h3>
+      <span>Account Handler</span>
+    </a>
+
+  </div>
+  </div>
 
   <footer>
     <div class="container">
