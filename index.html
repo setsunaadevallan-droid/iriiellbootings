@@ -919,6 +919,7 @@
         <a href="#services">Layanan</a>
         <a href="#pricing">Paket</a>
         <a href="#partnership">Partnership</a>
+        <a href="#my-partnership">My Partnership</a>
         <a href="#order">Order</a>
         <a class="nav-cta" href="https://wa.me/6281229512716" target="_blank">WhatsApp</a>
         <a class="nav-cta messenger-btn" href="https://m.me/shinn.kinzkou" target="_blank">Messenger</a>
@@ -1371,6 +1372,29 @@
     </div>
   </div>
     </section>
+
+    <section id="my-partnership">
+  <div class="container">
+    <div class="section-head">
+      <h2>My Partnership</h2>
+      <p>Partner resmi yang bekerja sama dengan Iriiel Boosting.</p>
+    </div>
+
+    <div class="services-grid">
+      
+      <a href="https://www.facebook.com/share/1DvPAcZyNL/" target="_blank" class="service-card" style="text-decoration:none;">
+        <h3>Kakamond Alice</h3>
+        <p>Klik untuk melihat profil Facebook.</p>
+      </a>
+
+      <a href="https://www.facebook.com/share/1B2UnXoEdK/" target="_blank" class="service-card" style="text-decoration:none;">
+        <h3>Alez Leosi</h3>
+        <p>Klik untuk melihat profil Facebook.</p>
+      </a>
+
+    </div>
+  </div>
+    </section>
     
     <section id="order">
       <div class="container">
@@ -1574,6 +1598,15 @@
         document.body.style.overflow = '';
       }
     }
+
+    #my-partnership .service-card {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#my-partnership .service-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
 
     document.addEventListener('keydown', function(event) {
       if (event.key === 'Escape') {
