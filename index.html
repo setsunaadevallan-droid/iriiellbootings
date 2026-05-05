@@ -1631,7 +1631,7 @@
       });
     });
 
-    function sendOrderToMessenger(event) {
+    function sendOrderToWhatsApp(event) {
   event.preventDefault();
 
   const game = document.getElementById('game').value;
@@ -1640,22 +1640,15 @@
   const server = document.getElementById('server').value;
   const order = document.getElementById('order').value;
 
-  const orderMessage =
-`Halo Admin Iriiel Boosting, saya mau order joki game.
+  const message = `Halo Admin Iriiel Boosting, saya mau order joki game.%0A%0A` +
+    `Game: ${encodeURIComponent(game)}%0A` +
+    `Login: ${encodeURIComponent(login)}%0A` +
+    `Email/Username: ${encodeURIComponent(email)}%0A` +
+    `Server: ${encodeURIComponent(server)}%0A` +
+    `Order: ${encodeURIComponent(order)}%0A%0A` +
+    `Mohon info harga dan estimasi pengerjaannya ya.`;
 
-Game: ${game}
-Login: ${login}
-Email/Username: ${email}
-Server: ${server}
-Order: ${order}
-
-Mohon info harga dan estimasi pengerjaannya ya.`;
-
-  // Simpan message (optional, kalau mau dipakai nanti)
-  localStorage.setItem('iriiel_order_message', orderMessage);
-
-  // 🔥 Redirect ke Messenger (FIX)
-  window.open(`https://www.facebook.com/messages/t/shinn.kinzkou`, '_blank');
+  window.open(`https://wa.me/6281229512716?text=${message}`, '_blank');
     }
   </script>
 </body>
