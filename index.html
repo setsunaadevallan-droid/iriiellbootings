@@ -131,6 +131,26 @@
       box-shadow: 0 10px 30px rgba(245, 199, 107, 0.22);
     }
 
+
+
+    .multi-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .messenger-btn {
+      color: #fff;
+      background: linear-gradient(135deg, #0084ff, #8a3ffc, #ff4f9a);
+      box-shadow: 0 16px 42px rgba(0, 132, 255, 0.24);
+    }
+
+    .messenger-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 52px rgba(0, 132, 255, 0.34);
+    }
+
     .hero {
       position: relative;
       padding: 92px 0 70px;
@@ -883,80 +903,6 @@
       .hero-actions a {
         width: 100%;
       }
-
-      .team-section {
-  margin-top: 40px;
-  text-align: center;
-}
-
-.team-title {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 20px;
-  letter-spacing: 1px;
-}
-
-.team-grid {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.team-card {
-  width: 200px;
-  padding: 22px;
-  border-radius: 24px;
-  text-decoration: none;
-  color: var(--text);
-  background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
-  border: 1px solid rgba(255,255,255,0.12);
-  transition: 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.team-card::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  background: linear-gradient(135deg, rgba(245,199,107,0.4), transparent, rgba(155,124,255,0.4));
-  opacity: 0;
-  transition: 0.3s;
-}
-
-.team-card:hover::before {
-  opacity: 1;
-}
-
-.team-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(245,199,107,0.4);
-}
-
-.team-avatar {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 14px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-weight: 900;
-  font-size: 18px;
-  color: #070812;
-  background: linear-gradient(135deg, var(--gold), var(--purple));
-  box-shadow: 0 10px 30px rgba(245,199,107,0.3);
-}
-
-.team-card h3 {
-  font-size: 16px;
-  margin-bottom: 6px;
-}
-
-.team-card span {
-  font-size: 13px;
-  color: var(--muted);
-}
     }
   </style>
 </head>
@@ -972,10 +918,10 @@
         <a href="#games">Game</a>
         <a href="#services">Layanan</a>
         <a href="#pricing">Paket</a>
-        <a href="#partnership">Join Partnership</a>
-        <a href="#team-section"> My PartnerShip</a>
+        <a href="#partnership">Partnership</a>
         <a href="#order">Order</a>
-        <a class="nav-cta" href="https://wa.me/6281229512716" target="_blank">Chat Admin</a>
+        <a class="nav-cta" href="https://wa.me/6281229512716" target="_blank">WhatsApp</a>
+        <a class="nav-cta messenger-btn" href="https://m.me/USERNAME_FACEBOOK_KAMU" target="_blank">Messenger</a>
       </nav>
     </div>
   </header>
@@ -992,7 +938,8 @@
           </p>
 
           <div class="hero-actions">
-            <a href="#form-order" class="btn-primary">Order via WhatsApp</a>
+            <a href="https://wa.me/6281229512716" target="_blank" class="btn-primary">Order via WhatsApp</a>
+            <a href="https://m.me/USERNAME_FACEBOOK_KAMU" target="_blank" class="btn-primary messenger-btn">Order via Messenger</a>
             <a href="#games" class="btn-secondary">Lihat Game Support</a>
           </div>
 
@@ -1461,10 +1408,10 @@
       <div class="container">
         <div class="section-head">
           <h2>Form Order Otomatis</h2>
-          <p>Isi detail order di bawah ini, lalu klik tombol kirim untuk membuka WhatsApp admin dengan pesan otomatis.</p>
+          <p>Isi detail order di bawah ini, lalu klik tombol kirim untuk membuka Messenger admin dengan pesan otomatis.</p>
         </div>
 
-        <form class="order-form" onsubmit="sendOrderToWhatsApp(event)">
+        <form class="order-form" onsubmit="sendOrderToMessenger(event)">
           <div class="form-grid">
             <div class="form-group">
               <label for="game">Game</label>
@@ -1503,10 +1450,10 @@
           </div>
 
           <p class="form-note">
-            Catatan keamanan: password tidak dikirim lewat form website. Untuk detail login sensitif, konfirmasi langsung dengan admin di chat WhatsApp setelah order masuk.
+            Catatan keamanan: password tidak dikirim lewat form website. Untuk detail login sensitif, konfirmasi langsung dengan admin di chat Messenger setelah order masuk.
           </p>
 
-          <button type="submit" class="submit-btn">Kirim Order ke WhatsApp</button>
+          <button type="submit" class="submit-btn">Kirim Order ke Messenger</button>
         </form>
       </div>
     </section>
@@ -1519,32 +1466,14 @@
             Chat admin Iriiel Boosting sekarang untuk konsultasi game, estimasi harga,
             dan jadwal pengerjaan.
           </p>
-          <a href="#form-order" class="btn-primary">Chat WhatsApp Sekarang</a>
+          <div class="multi-contact" style="justify-content:center;">
+            <a href="https://wa.me/6281229512716" target="_blank" class="btn-primary">Chat WhatsApp Sekarang</a>
+            <a href="https://m.me/USERNAME_FACEBOOK_KAMU" target="_blank" class="btn-primary messenger-btn">Chat Messenger Sekarang</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
-
-  <section id="team-section">
-  <div class="team-section">
-  <p class="team-title">My Partnership</p>
-
-  <div class="team-grid">
-    
-    <a href="https://www.facebook.com/share/1akrfoMP56/" target="_blank" class="team-card">
-      <div class="team-avatar">KA</div>
-      <h3>Kakamond alice</h3>
-      <span>Spesialis HSR</span>
-    </a>
-
-    <a href="https://www.facebook.com/share/1C1XrmmqCQ/" target="_blank" class="team-card">
-      <div class="team-avatar">AL</div>
-      <h3>Alez Leosi</h3>
-      <span>Account Handler</span>
-    </a>
-
-  </div>
-  </div>
 
   <footer>
     <div class="container">
@@ -1552,6 +1481,7 @@
 
       <div style="margin-top:20px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
         <a href="https://wa.me/6281229512716" target="_blank" class="btn-primary">WhatsApp</a>
+        <a href="https://m.me/USERNAME_FACEBOOK_KAMU" target="_blank" class="btn-primary messenger-btn">Messenger</a>
         <a href="https://www.facebook.com/share/1CS8Ei81mZ/" target="_blank" class="btn-secondary">Facebook</a>
         <a href="https://discord.gg/ck4WXP8qE" target="_blank" class="btn-secondary">Discord Server</a>
       </div>
@@ -1560,7 +1490,7 @@
 
   <div class="floating-contact">
     <a href="https://wa.me/6281229512716" target="_blank" title="WhatsApp">WA</a>
-    <a href="https://www.facebook.com/share/1CS8Ei81mZ/" target="_blank" title="Facebook">FB</a>
+    <a href="https://m.me/USERNAME_FACEBOOK_KAMU" target="_blank" title="Messenger">MS</a>
     <a href="https://discord.gg/ck4WXP8qE" target="_blank" title="Discord">DC</a>
   </div>
 
@@ -1701,7 +1631,7 @@
       });
     });
 
-    function sendOrderToWhatsApp(event) {
+    function sendOrderToMessenger(event) {
       event.preventDefault();
 
       const game = document.getElementById('game').value;
@@ -1710,15 +1640,30 @@
       const server = document.getElementById('server').value;
       const order = document.getElementById('order').value;
 
-      const message = `Halo Admin Iriiel Boosting, saya mau order joki game.%0A%0A` +
-        `Game: ${encodeURIComponent(game)}%0A` +
-        `Login: ${encodeURIComponent(login)}%0A` +
-        `Email/Username: ${encodeURIComponent(email)}%0A` +
-        `Server: ${encodeURIComponent(server)}%0A` +
-        `Order: ${encodeURIComponent(order)}%0A%0A` +
+      const orderMessage = `Halo Admin Iriiel Boosting, saya mau order joki game.
+
+` +
+        `Game: ${game}
+` +
+        `Login: ${login}
+` +
+        `Email/Username: ${email}
+` +
+        `Server: ${server}
+` +
+        `Order: ${order}
+
+` +
         `Mohon info harga dan estimasi pengerjaannya ya.`;
 
-      window.open(`https://wa.me/6281229512716?text=${message}`, '_blank');
+      /*
+        Ganti USERNAME_FACEBOOK_KAMU dengan username/page ID Messenger kamu.
+        Catatan: Messenger tidak selalu mendukung auto-fill pesan panjang seperti WhatsApp.
+        Parameter ref dipakai untuk menandai bahwa user datang dari form order website.
+      */
+      const messengerUsername = 'USERNAME_FACEBOOK_KAMU';
+      localStorage.setItem('iriiel_order_message', orderMessage);
+      window.open(`https://m.me/${messengerUsername}?ref=order_form`, '_blank');
     }
   </script>
 </body>
