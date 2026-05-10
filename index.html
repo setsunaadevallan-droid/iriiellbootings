@@ -421,11 +421,21 @@
       display: none;
     }
 
-    .games-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
+   .games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.game-link {
+  width: 100%;
+}
+
+.game-card {
+  width: 100%;
+  min-height: 220px;
+}
 
     .game-link {
       display: block;
