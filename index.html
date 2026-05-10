@@ -433,16 +433,32 @@
       text-decoration: none;
     }
 
-    .game-card {
-      position: relative;
-      padding: 24px;
-      min-height: 170px;
-      border-radius: 26px;
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      overflow: hidden;
-      transition: 0.3s ease;
-    }
+   .game-card {
+  position: relative;
+  padding: 24px;
+  min-height: 190px;
+  border-radius: 26px;
+  background: rgba(15, 17, 35, 0.78);
+  border: 1px solid var(--card-border);
+  overflow: hidden;
+  transition: 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.game-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.18;
+  z-index: 0;
+}
+
+.game-card * {
+  position: relative;
+  z-index: 2;
+}
 
     .game-card::after {
       content: "";
@@ -465,17 +481,16 @@
       background: rgba(255, 255, 255, 0.1);
     }
 
-    .game-icon {
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border-radius: 16px;
-      margin-bottom: 18px;
-      color: #070812;
-      background: linear-gradient(135deg, var(--gold), var(--purple));
-      font-weight: 900;
-    }
+   .game-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  background: rgba(255,255,255,0.08);
+  border: 2px solid rgba(255,255,255,0.15);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
 
     .game-icon img {
       width: 100%;
@@ -903,6 +918,26 @@
       .hero-actions a {
         width: 100%;
       }
+
+      a[href*="hsr"] .game-card::before {
+  background-image: url('bg-hsr.jpg');
+}
+
+a[href*="genshin"] .game-card::before {
+  background-image: url('bg-genshin.jpg');
+}
+
+a[href*="ww"] .game-card::before {
+  background-image: url('bg-ww.jpg');
+}
+
+a[href*="zzz"] .game-card::before {
+  background-image: url('bg-zzz.jpg');
+}
+
+a[href*="nte"] .game-card::before {
+  background-image: url('bg-nte.jpg');
+}
     }
   </style>
 </head>
@@ -1003,7 +1038,8 @@
         <div class="games-grid">
           <a href="#hsr-pricelist" class="game-link" data-category="hoyoverse anime-rpg" onclick="openPricelist(event, 'hsr.jpg', 'Pricelist Honkai: Star Rail')">
             <div class="game-card">
-              <div class="game-icon">HSR</div>
+              <div class="game-icon">
+  <img src="logo-hsr.png" alt="HSR Logo">
               <h3>Honkai: Star Rail</h3>
               <p>Klik untuk melihat pricelist Honkai: Star Rail dan detail layanan yang tersedia.</p>
             </div>
