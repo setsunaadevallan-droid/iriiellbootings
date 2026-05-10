@@ -1280,7 +1280,7 @@
         </div>
 
         <div class="order-form">
-          <form>
+          <form id="orderForm">
             <div class="form-grid">
               <div class="form-group">
                 <label for="nama">Nama Lengkap</label>
@@ -1421,6 +1421,35 @@
     document.getElementById('modalImage')?.addEventListener('mousemove', (e) => {
       if (!isDragging) return;
     });
+
+document.getElementById("orderForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const nama = document.getElementById("nama").value;
+  const wa = document.getElementById("wa").value;
+  const game = document.getElementById("game").value;
+  const server = document.getElementById("server").value;
+  const deskripsi = document.getElementById("deskripsi").value;
+
+  const nomorAdmin = "6281229512716";
+
+  const pesan =
+`Halo Iriiel Boosting, saya ingin order.
+
+👤 Nama: ${nama}
+📱 WhatsApp: ${wa}
+🎮 Game: ${game}
+🌍 Server: ${server}
+
+📝 Detail Order:
+${deskripsi}`;
+
+  const url =
+`https://wa.me/${08122951271}?text=${encodeURIComponent(pesan)}`;
+
+  window.open(url, "_blank");
+});
+    
   </script>
 </body>
 </html>
